@@ -1,4 +1,4 @@
-namespace SzamelmeletProjekt;
+    namespace SzamelmeletProjekt;
 
 public static class Szamelmelet
 {
@@ -38,27 +38,32 @@ public static class Szamelmelet
         return osztok;
     }
 
-    public static string KiLista(List<int> list)
+    public static string ListaToString(List<int> list)
     {
         return string.Join(", ", list);
     }
 
     public static bool PrimszamE(int szam)
     {
-        // Primszám-e a szám
-        return false;
+        return GetOsztok(szam).Count == 2;
     }
 
     public static List<int> GetPrimszamok(int kezdet, int veg)
     {
-        // Prímszámok adott intervallumban
-        return new List<int>();
+        List<int > list = new List<int>();
+        for (int i = kezdet; i < veg; i++)
+        {
+            if(PrimszamE(i))
+            {
+                list.Add(i);
+            }
+        }
+        return list;
     }
 
     public static List<int> GetPrimszamokHatarig(int veg)
     {
-        // Prímszámok adott határig
-        return new List<int>();
+        return GetPrimszamok(1, veg);
     }
     public static int GetOsztokOsszege()
     { return 0; }
